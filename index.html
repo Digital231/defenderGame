@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="enemy.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="navbar p-3">
+        <h3 class="d-flex align-items-center" id="goldHTML">
+            <img src="./assets/gold.png" alt="">
+            <span>Gold</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="woodHTML">
+            <img src="./assets/wood.png" alt="">
+            <span>Wood</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="foodHTML">
+            <img src="./assets/food.png" alt="">
+            <span>Food</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="populationHTML">
+            <img src="./assets/pop.png" alt="">
+            <span>Population</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="defenseHTML">
+            <img src="./assets/defense.png" alt="">
+            <span>Defense Power</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="attackHTML">
+            <img src="./assets/attack.png" alt="">
+            <span>Incoming attack in:</span>
+        </h3>
+    </div>
+
+    <div class="container d-flex flex-column justify-content-center">
+
+        <div class="row">
+            <div class="col d-flex justify-content-between">
+                <div class="tower d-flex flex-column align-items-center">
+                    <img src="./assets/tower.webp" alt="">
+                    <div id="buildTower1" class="btn btn-secondary">Build tower</div>
+                    <div id="upgradeTower1Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                </div>
+                <div class="lumberMill d-flex flex-column align-items-center">
+                    <img src="./assets/lumberMill.png" alt="">
+                    <div id="buildLumberMill" class="btn btn-secondary">Build Lumber Mill</div>
+                    <div id="upgradeLumberMillBtn" class="btn btn-success d-none">Upgrade Lumber Mill</div>
+                </div>
+                <div class="tower d-flex flex-column align-items-center">
+                    <img src="./assets/tower.webp" alt="">
+                    <div id="buildTower2" class="btn btn-secondary">Build tower</div>
+                    <div id="upgradeTower2Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-between">
+                <div class="col d-flex justify-content-center">
+                    <div class="cityHall d-flex flex-column align-items-center">
+                        <img src="./assets/barracks.png" alt="">
+                        <div id="trainTroopsBtn" class="btn btn-warning">Train Troops</div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <div class="cityHall d-flex flex-column align-items-center">
+                        <img src="./assets/townHall.png" alt="">
+                        <div id="buildTownHall" class="btn btn-info">Recruit people</div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <div class="cityHall d-flex flex-column align-items-center">
+                        <img src="./assets/castle.png" alt="">
+                        <div id="buildCastle" class="btn btn-secondary">Buid a Castle</div>
+                        <div id="trainKnightsBtn" class="btn btn-warning d-none">Train Knights</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-between">
+                <div class="tower d-flex flex-column align-items-center">
+                    <img src="./assets/tower.webp" alt="">
+                    <div id="buildTower3" class="btn btn-secondary">Build tower</div>
+                    <div id="upgradeTower3Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                </div>
+                <div class="lumberMill d-flex flex-column align-items-center">
+                    <img src="./assets/mill.png" alt="">
+                    <div id="buildMill" class="btn btn-secondary">Build Mill</div>
+                    <div id="upgradeMillBtn" class="btn btn-success d-none">Upgrade Mill</div>
+
+                </div>
+                <div class="tower d-flex flex-column align-items-center">
+                    <img src="./assets/tower.webp" alt="">
+                    <div id="buildTower4" class="btn btn-secondary">Build tower</div>
+                    <div id="upgradeTower4Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar p-3">
+        <h3 class="d-flex align-items-center" id="enemyGoldHTML">
+            <img src="./assets/gold.png" alt="">
+            <span>Enemy Gold</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="enemyWoodHTML">
+            <img src="./assets/wood.png" alt="">
+            <span>Enemy Wood</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="enemyFoodHTML">
+            <img src="./assets/food.png" alt="">
+            <span>Enemy Food</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="enemyPopHTML">
+            <img src="./assets/pop.png" alt="">
+            <span>Enemy Population</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="attackPowerHTML">
+            <img src="./assets/defense.png" alt="">
+            <span>Attack Power</span>
+        </h3>
+        <h3 class="d-flex align-items-center" id="playerAttackHTML">
+            <img src="./assets/attack.png" alt="">
+            <span>You attacking in:</span>
+        </h3>
+    </div>
+</body>
+
+</html>
