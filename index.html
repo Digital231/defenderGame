@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.7.0/hint.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="enemy.js" defer></script>
     <script src="script.js" defer></script>
@@ -45,25 +46,47 @@
             <span>Incoming attack in:</span>
         </h3>
     </div>
+    <div id="startScreen" class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <h1>Welcome to City Defender</h1>
+        <p>Instructions: Build your city, defend against attacks, and defeat the enemy!</p>
+        <p>If enemy attack is succesful, they kill your villagers and loot your resources</p>
+        <p>Knights and troops cannot be higher than your population</p>
+        <p>Build a Lumber Mill to increase your wood production</p>
+        <p>Build a Farm to increase your food production</p>
+        <p>Train villagers to increase gold earned</p>
+        <p>Train troops to increase defense</p>
+        <p>Train knights to attack</p>
+        <p>Press ENTER to Pause and resume</p>
+        <button id="startButton" class="btn btn-primary">Start Game</button>
+    </div>
 
-    <div class="container d-flex flex-column justify-content-center">
-
+    <div id="gameContainer" class="container d-flex flex-column justify-content-center d-none">
         <div class="row">
             <div class="col d-flex justify-content-between">
                 <div class="tower d-flex flex-column align-items-center">
                     <img src="./assets/tower.webp" alt="">
-                    <div id="buildTower1" class="btn btn-secondary">Build tower</div>
-                    <div id="upgradeTower1Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                    <div id="buildTower1" class="btn btn-secondary hint--top"
+                        aria-label="20% defense bonus. 200Gold, 200Wood">Build
+                        tower</div>
+                    <div id="upgradeTower1Btn" class="btn btn-danger hint--top d-none"
+                        aria-label="+5% extra defense. 200Gold, 200Wood">
+                        Upgrade tower</div>
                 </div>
                 <div class="lumberMill d-flex flex-column align-items-center">
                     <img src="./assets/lumberMill.png" alt="">
-                    <div id="buildLumberMill" class="btn btn-secondary">Build Lumber Mill</div>
-                    <div id="upgradeLumberMillBtn" class="btn btn-success d-none">Upgrade Lumber Mill</div>
+                    <div id="buildLumberMill" class="btn btn-secondary hint--top"
+                        aria-label="Adds wood per second, 200Gold, 100Wood ">
+                        Build Lumber Mill</div>
+                    <div id="upgradeLumberMillBtn" class="btn btn-success hint--top d-none"
+                        aria-label="Increase wood per second, 250Gold, 100Wood">Upgrade Lumber Mill</div>
                 </div>
                 <div class="tower d-flex flex-column align-items-center">
                     <img src="./assets/tower.webp" alt="">
-                    <div id="buildTower2" class="btn btn-secondary">Build tower</div>
-                    <div id="upgradeTower2Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                    <div id="buildTower2" class="btn btn-secondary hint--top"
+                        aria-label="20% reduced cost of training defenders, 200Gold, 200Wood">Build tower</div>
+                    <div id="upgradeTower2Btn" class="btn btn-danger hint--top d-none"
+                        aria-label="-5% extra cost. 200Gold, 200Wood">
+                        Upgrade tower</div>
                 </div>
             </div>
         </div>
@@ -73,20 +96,29 @@
                 <div class="col d-flex justify-content-center">
                     <div class="cityHall d-flex flex-column align-items-center">
                         <img src="./assets/barracks.png" alt="">
-                        <div id="trainTroopsBtn" class="btn btn-warning">Train Troops</div>
+                        <div id="trainTroopsBtn" class="btn btn-warning hint--top"
+                            aria-label="Train troops for defense. 50G, 10Food">Train Troops</div>
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
                     <div class="cityHall d-flex flex-column align-items-center">
                         <img src="./assets/townHall.png" alt="">
-                        <div id="buildTownHall" class="btn btn-info">Recruit people</div>
+                        <div id="buildTownHall" class="btn btn-info hint--top"
+                            aria-label="Train villagers, 50G, 20Food. Gives gold per second">Recruit
+                            people</div>
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
                     <div class="cityHall d-flex flex-column align-items-center">
                         <img src="./assets/castle.png" alt="">
-                        <div id="buildCastle" class="btn btn-secondary">Buid a Castle</div>
-                        <div id="trainKnightsBtn" class="btn btn-warning d-none">Train Knights</div>
+                        <div id="buildCastle" class="btn btn-secondary hint--top"
+                            aria-label="Able to train army. 500G 200Wood 300Food 50Pop">Build
+                            a Castle</div>
+                        <div id="trainKnightsBtn" class="btn btn-warning hint--top d-none"
+                            aria-label="Train knights for attack. 150Gold 50Wood">Train Knights</div>
+                        <div id="launchAttackBtn" class="btn btn-danger mt-1 hint--top"
+                            aria-label="Launch attack to enemy! Possible to loot gold, wood and food">Launch attack
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,22 +127,35 @@
             <div class="col d-flex justify-content-between">
                 <div class="tower d-flex flex-column align-items-center">
                     <img src="./assets/tower.webp" alt="">
-                    <div id="buildTower3" class="btn btn-secondary">Build tower</div>
-                    <div id="upgradeTower3Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                    <div id="buildTower3" class="btn btn-secondary hint--top"
+                        aria-label="20% resource protection, 300Gold, 200Wood">
+                        Build tower</div>
+                    <div id="upgradeTower3Btn" class="btn btn-danger hint--top d-none"
+                        aria-label="+5% extra resource protection, 200Gold, 200Wood">Upgrade tower</div>
                 </div>
                 <div class="lumberMill d-flex flex-column align-items-center">
                     <img src="./assets/mill.png" alt="">
-                    <div id="buildMill" class="btn btn-secondary">Build Mill</div>
-                    <div id="upgradeMillBtn" class="btn btn-success d-none">Upgrade Mill</div>
-
+                    <div id="buildMill" class="btn btn-secondary hint--top"
+                        aria-label="Adds food per second, 200G, 100Wood.">Build
+                        Mill</div>
+                    <div id="upgradeMillBtn" class="btn btn-success hint--top d-none"
+                        aria-label="Increase food production, 250Gold, 100Wood.">Upgrade Mill</div>
                 </div>
                 <div class="tower d-flex flex-column align-items-center">
                     <img src="./assets/tower.webp" alt="">
-                    <div id="buildTower4" class="btn btn-secondary">Build tower</div>
-                    <div id="upgradeTower4Btn" class="btn btn-danger d-none">Upgrade tower</div>
+                    <div id="buildTower4" class="btn btn-secondary hint--top"
+                        aria-label="15% attack power bonus, 400Gold, 300Wood">Build
+                        tower</div>
+                    <div id="upgradeTower4Btn" class="btn btn-danger hint--top d-none"
+                        aria-label="+5% extra attack power, 400Gold, 300Wood">Upgrade tower</div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="endScreen" class="d-none d-flex flex-column justify-content-center align-items-center vh-100">
+        <h1>Game is finished!</h1>
+        <p id="endMessage"></p>
+        <button id="restartButton" class="btn btn-primary">Restart Game</button>
     </div>
     <div class="navbar p-3">
         <h3 class="d-flex align-items-center" id="enemyGoldHTML">
@@ -138,6 +183,9 @@
             <span>You attacking in:</span>
         </h3>
     </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
 </body>
 
 </html>
